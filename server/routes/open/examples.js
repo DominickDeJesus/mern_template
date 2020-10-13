@@ -1,4 +1,4 @@
-const Example = require('../../models/example'),
+const Example = require('../../db/models/example'),
   router = require('express').Router();
 
 // ***********************************************//
