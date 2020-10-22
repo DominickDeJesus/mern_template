@@ -26,4 +26,7 @@ router.get('/api/examples', async (req, res) => {
   }
 });
 
+router.get('/api/test', async (req, res) => {
+  res.json('Hello from server!');
+});
 module.exports = router;

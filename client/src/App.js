@@ -1,24 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useEffect, useState } from 'react';
+import logo from './resources/images/logo.svg';
 import './App.css';
+import axios from 'axios';
 
 function App() {
+  const [serverMessage, setServerMessage] = useState();
+
+  useEffect(() => {
+    axios
+      .get('/api/test')
+      .then((response) => setServerMessage(response.data))
+      .catch((error) => console.log(error));
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h3>Hello from client!</h3>
+      <h3>{serverMessage}</h3>
     </div>
   );
 }
